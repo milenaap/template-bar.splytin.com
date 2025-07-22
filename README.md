@@ -1,7 +1,15 @@
-# Astro Template - bar
+# Astro Starter Kit: Minimal
 
 ```sh
 npm create astro@latest -- --template minimal
+```
+
+## update Astro
+
+```sh
+
+npx @astrojs/upgrade
+
 ```
 
 

@@ -1,5 +1,6 @@
 ---
-import { getStaticPaths, getI18nProps } from '../../i18n/helperi18n';
+import { getStaticPaths, getI18nProps } from '@i18n/helperi18n';
+import MapComponentReact from '@components/maps/MapComponentReact';
 
 export { getStaticPaths };
 
@@ -11,25 +12,37 @@ const { lang, t, title } = getI18nProps(Astro.params, 'contact');
 ---
 
 
+<section
+  id="location"
+  class="relative bg-fixed bg-center bg-cover bg-no-repeat"
+  style="background-image: url('/images/location.webp');"
+>
+  <!-- Overlay oscura -->
+  <div class="absolute inset-0 bg-black/60"></div>
 
-<div class="section">
-  <section
-    id="location"
-    class="relative bg-fixed bg-center bg-cover bg-no-repeat"
-    style="background-image: url('/images/location.webp');"
-  >
-    <!-- Overlay oscura -->
-    <div class="absolute inset-0 bg-black/60"></div>
+  <!-- Contenido -->
+  <div class="relative z-10 flex flex-col items-center justify-center min-h-[60vh] px-6 text-center text-white">
+    <h2 class="text-white">{t('contact.title')}</h2>
+    <p class="text-white">{t('contact.address')}</p>
+    <p class="text-white">{t('contact.hours')}</p>
+    <p class="text-white">{t('contact.phone')}</p>
+    <p class="italic-note text-white">{t('contact.note')}</p>
+  </div>
+</section>
 
-    <!-- Contenido -->
-    <div class="relative z-10 flex flex-col items-center justify-center min-h-[60vh] px-6 text-center text-white">
-      <h2 class="text-4xl font-bold sm:text-5xl">{t('location.title')}</h2>
-      <p class="mt-4 text-lg sm:text-xl">{t('location.address')}</p>
-      <p class="mt-2 text-lg sm:text-xl">{t('location.hours')}</p>
-      <p class="mt-2 text-lg sm:text-xl">{t('location.phone')}</p>
-      <p class="mt-2 text-base italic opacity-80">{t('location.note')}</p>
-    </div>
-  </section>
-</div>
+
+<section id="map">
+  <div class="max-w-7xl mx-auto text-center space-y-4">
+    <h2>{t("map.heading")}</h2>
+    <p class="text-center">{t("map.description")}</p>
+  </div>
+
+  <div class="max-w-5xl mx-auto mt-8 px-4">
+    <MapComponentReact client:only="react" />
+  </div>
+</section>
+
+
+
 
 

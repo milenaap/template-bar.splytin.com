@@ -1,5 +1,5 @@
 ---
-import { getStaticPaths, getI18nProps } from '../../i18n/helperi18n';
+import { getStaticPaths, getI18nProps } from '@i18n/helperi18n';
 export { getStaticPaths };
 
 
@@ -12,12 +12,15 @@ const { lang, t, title } = getI18nProps(Astro.params, 'about');
 
 ---
 
-
-<!-- Nosotros Section -->
-<section id="nosotros">
-  <div class="container mx-auto px-6 py-16">
+<!-- About Section -->
+<section id="about">
+  <div class="container mx-auto px-6">
+    <h2>{t("about.title")}</h2>
+    <p class="text-center mb-15">{t("about.description")}</p>
+    
     <!-- Fila 1 -->
     <div class="about-row flex flex-wrap items-center justify-center md:justify-between">
+      
       <div
         class="about-text w-full md:w-1/2"
         data-aos="fade-right"
@@ -25,6 +28,7 @@ const { lang, t, title } = getI18nProps(Astro.params, 'about');
         data-aos-delay="100"
         data-aos-easing="ease-in-out"
       >
+        
         <h2 class="text-3xl font-semibold text-primary text-center" data-i18n="about_title1">
           {t('about.title1')}
         </h2>
