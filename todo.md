@@ -1,8 +1,5 @@
 ## TODO Cosas pendiente por hacer
 
-- Hacer imagenes para cada componente para el meta ogImage en Ilustrator fondo transparente (svg)
-- Hacer lading page
-
 
 
 
